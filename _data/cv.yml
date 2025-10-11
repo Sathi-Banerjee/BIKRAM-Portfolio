@@ -1,0 +1,144 @@
+- title: General Information
+  type: map
+  contents:
+    - name: Full Name
+      value: Bikram Dholey
+    - name: Label
+      value: Research Scholar
+    - name: Email
+      value: bikram.dholey.563412@gmail.com
+    - name: Phone
+      value: ‪+91-9874795937‬
+    - name: Address
+      value: Kelepara, Ghargohal, Pursurah, Tarakeshwar, 712414, India
+    - name: LinkedIn
+      value: https://www.linkedin.com/in/bikram-dholey-6a67ba161/
+    - name: Instagram
+      value: https://www.instagram.com/bd_stark_/
+    - name: Languages
+      value: Bengali (Fluent), Hindi (Fluent), English (Fluent)
+
+- title: Education
+  type: time_table
+  contents:
+    - title: Ph.D. in Applied Mathematics
+      institution: Jadavpur University, West Bengal, India
+      year: 2025 – Present
+    - title: B.Ed. in Mathematics Education
+      institution: Bhaktabala B.Ed. College, West Bengal, India
+      year: 2022 – 2024
+      description:
+        - CGPA: 8.35/10
+    - title: M.Sc. in Mathematics
+      institution: Ramakrishna Mission Vivekananda Centenary College, West Bengal, India
+      year: 2020 – 2022
+      description:
+        - CGPA: 9.57/10
+    - title: B.Sc. (Hons.) in Mathematics
+      institution: Acharya Jagadish Chandra Bose College, West Bengal, India
+      year: 2017 – 2020
+      description:
+        - Percentage: 74%
+
+- title: Experience
+  type: time_table
+  contents:
+    - title: Ph.D. Scholar, Department of Mathematics
+      institution: Jadavpur University
+      year: 2025 – Present
+      description:
+        - Research in wave propagation in smart composite materials, focusing on piezoelectric fiber‑reinforced composites.
+        - Mathematical modeling and computational simulation for understanding wave–material interactions.
+        - Applications in earthquake engineering, geophysical exploration, and smart material design.
+    - title: Assistant Professor in Mathematics
+      institution: Brainware University
+      year: 2022 – 2025
+      description:
+        - Teaching undergraduate and postgraduate mathematics courses.
+        - Mentoring student research projects.
+        - Curriculum development and integrating research into teaching.
+
+- title: Conferences
+  type: time_table
+  contents:
+    - title: International Conference on Mathematics and Its Applications (ICMA 2024)
+      description:
+        - Presented research on wave propagation in smart composite structures.
+        - Showcased theoretical modeling and computational analysis.
+    - title: National Seminar on Advances in Mathematics and Its Applications
+      description:
+        - Presented work on SH-wave propagation modeling in layered composites.
+        - Discussed implications for earthquake engineering and smart materials.
+
+- title: Certificates
+  type: list
+  contents:
+    - Introduction to Abstract and Linear Algebra | FDP – NPTEL
+    - TEW in Analysis and Topology 2023 | FDP – ATM School
+    - Recent Trends in Biomathematics & Dynamical Systems | FDP – Mahadevananda Mahavidyalaya
+    - Python 3.4.3 | Training – IIT Bombay
+    - LaTeX | Training – IIT Bombay
+    - Number Theory & its Application | FDP – Gates Institute of Technology
+    - Metric Spaces – Krishna Chandra College
+    - A National Webinar on Epidemiology and Mathematics – Rahara Ramakrishna Mission Vivekananda Centenary College
+    - Dynamical Systems in Cosmological Studies – Krishna Chandra College
+    - Electronic Waste: Problem, Management & Policies in India – Acharya Jagadish Chandra Bose College
+    - Fighting COVID-19 through Mathematical Way – Acharya Jagadish Chandra Bose College
+
+- title: Publications
+  type: time_table
+  contents:
+    - title: The Influence of SH-wave Propagation in a Tri-layered Composite Structure with Interfacial Imperfections
+      institution: Journal of Vibration Engineering & Technologies
+      year: 2025
+      description:
+        - DOI: https://doi.org/10.1007/s42417-025-01776-y
+
+- title: Technical Skills
+  type: list
+  contents:
+    - Programming Languages: Python, C
+    - Tools & Libraries: Mathematica, MATLAB, Matplotlib, LaTeX
+
+- title: Research Interests
+  type: list
+  contents:
+    - Solid Mechanics
+    - Wave Propagation
+    - Piezoelectricity
+    - Elastodynamics
+    - Vibrations
+    - Smart Materials
+
+- title: Subject Interests
+  type: list
+  contents:
+    - Differential Equations
+    - Wave Propagation
+    - Graph Theory
+    - Complex Analysis
+    - Manifold Theory
+
+- title: Projects
+  type: time_table
+  contents:
+    - title: M.Sc. Project – Morse Theory
+      institution: Supervised by Satyabrota Kundu
+      year: 2020
+      description:
+        - Studied topological structures of smooth manifolds.
+        - Applied Morse Theory to analyze critical points and topology.
+    - title: Supervision of MSc Project on Morse Theory
+      institution: Brainware University
+      year: 2023
+      description:
+        - Guided MSc student Marjita Goswami.
+        - Provided academic and research supervision.
+
+- title: References
+  type: list
+  contents:
+    - Prof. Gopal Ch. Shit – Professor, Jadavpur University – Email: gcshit@jadavpuruniversity.in
+    - Dr. Kshitish Ch. Mistri – Assistant Professor, Ramakrishna Mission Vivekananda Centenary College – Email: kchmistri@gmail.com
+    - Dr. Amrita Das – Assistant Professor, Polba Mahavidyalaya, University of Burdwan – Email: amritadas.ism@gmail.com
+    - Dr. Satyabrota Kundu – Assistant Professor, Loreto College, University of Calcutta – Email: satyacaluniv@gmail.com

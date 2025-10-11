@@ -1,0 +1,103 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+// Dimensions
+$max-content-width: {{ site.max_width }};
+
+@import
+  "variables",
+  "themes",
+  "layout",
+  "base",
+  "distill",
+  "cv",
+  "tabs",
+  "typograms",
+  "font-awesome/fontawesome",
+  "font-awesome/brands",
+  "font-awesome/solid",
+  "font-awesome/regular",
+  "tabler-icons/tabler-icons.scss",
+  "tabler-icons/tabler-icons-filled.scss",
+  "tabler-icons/tabler-icons-outline.scss"
+;
+
+// ===============================
+// Memories Gallery Styles
+// ===============================
+
+.memories-gallery,
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.memories-gallery img,
+.gallery img,
+.gallery video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+}
+
+.memories-gallery img:hover,
+.gallery img:hover,
+.gallery video:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+// Video thumbnails
+.video-thumb {
+  position: relative;
+  display: block;
+}
+
+.video-thumb video {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  filter: brightness(0.7);
+  transition: transform 0.25s ease-in-out, filter 0.25s ease-in-out;
+}
+
+.video-thumb:hover video {
+  filter: brightness(0.9);
+  transform: scale(1.03);
+}
+
+.video-thumb .play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  color: rgba(255, 255, 255, 0.85);
+  pointer-events: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.video-thumb:hover .play-button {
+  transform: translate(-50%, -50%) scale(1.2);
+  opacity: 1;
+}
+
+// Responsive tweaks
+@media (max-width: 600px) {
+  .gallery,
+  .memories-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .video-thumb .play-button {
+    font-size: 36px;
+  }
+}

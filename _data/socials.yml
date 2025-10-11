@@ -1,0 +1,27 @@
+- name: LinkedIn
+  url: https://www.linkedin.com/in/bikram-dholey-6a67ba161/
+  icon: fab fa-linkedin
+
+- name: ResearchGate
+  url: https://www.researchgate.net/profile/Bikram-Dholey
+  icon: ai ai-researchgate
+
+- name: ORCID
+  url: https://orcid.org/0009-0000-5362-6152
+  icon: ai ai-orcid
+
+- name: Google Scholar
+  url: https://scholar.google.co.in/citations?hl=en&user=D3Z_trYAAAAJ
+  icon: ai ai-google-scholar
+
+- name: Scopus
+  url: https://www.scopus.com/authid/detail.uri?authorId=59667688200
+  icon: ai ai-scopus
+
+- name: Web of Science
+  url: https://www.webofscience.com/wos/author/record/MYQ-6875-2025
+  icon: ai ai-wos
+
+- name: Vidwan
+  url: https://vidwan.inflibnet.ac.in/profile/361592
+  icon: ai ai-vidwan

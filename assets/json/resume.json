@@ -1,0 +1,337 @@
+{
+  "basics": {
+    "name": "Bikram Dholey",
+    "label": "Assistant Professor & Ph.D. Scholar in Mathematics",
+    "image": "",
+    "email": "bikram.dholey.563412@gmail.com",
+    "phone": "‪+91-9874795937‬",
+    "url": "https://www.linkedin.com/in/bikram-dholey-6a67ba161/",
+    "summary": "I am a curious and thoughtful individual who values knowledge, integrity, and meaningful connections. With a calm and analytical mindset, I approach life with patience and a desire to understand the world deeply. I enjoy exploring new ideas, solving challenging problems, and engaging in creative thinking. My interests extend beyond academics to technology, nature, and meaningful conversations. I appreciate honesty, mutual respect, and kindness in people. In my free time, I enjoy reading, learning new skills, and reflecting on personal growth. I believe in continuous self‑improvement and strive to balance professional ambition with a grounded and compassionate outlook on life.",
+    "location": {
+      "address": "Brainware University, Barasat",
+      "postalCode": "700125",
+      "city": "Kolkata",
+      "countryCode": "IN",
+      "region": "West Bengal"
+    },
+    "profiles": [
+      {
+        "network": "Instagram",
+        "username": "bd_stark_",
+        "url": "https://www.instagram.com/bd_stark_/"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Jadavpur University",
+      "position": "Ph.D. Scholer in the Department of Mathematics",
+      "url": "https://jadavpuruniversity.in/",
+      "startDate": "10-05-2025",
+      "endDate": "Present",
+      "summary": "I explore the fascinating world of wave propagation in smart and complex composite materials, focusing on piezoelectric fiber‑reinforced composites and their interaction with elastic, viscoelastic, and fluid layers. My work blends mathematical modeling and advanced computation to unlock how material properties, interfaces, and external fields influence wave speed, energy flow, and damping. These insights power innovations in earthquake engineering, geophysical exploration, and next‑generation smart material design. By merging theory, simulation, and creativity, I aim to transform abstract equations into real‑world solutions that advance both science and technology.",
+      "highlights": ["Wave Propagetion", "Piezoelectric Composites", "Mathematical Modeling", "Computational Simulation"]
+    },
+      {
+    "name": "Brainware University",
+    "position": "Assistant Professor in Mathematics",
+    "url": "https://www.brainwareuniversity.ac.in/",
+    "startDate": "20-09-2022",
+    "endDate": "19-08-2025",
+    "summary": "Teaching undergraduate and postgraduate mathematics courses while engaging in active research in solid mechanics, wave propagation, and piezoelectric materials. Mentoring students in research projects, guiding academic growth, and contributing to departmental academic development. Integrating research insights into classroom teaching to enhance learning outcomes and foster scientific curiosity.",
+    "highlights": [
+      "Teaching Mathematics to Undergraduate and Postgraduate Students",
+      "Mentoring Student Research Projects",
+      "Curriculum Development and Academic Guidance",
+      "Integrating Research into Teaching"
+    ]
+  }
+  ],
+
+  "confarenes": [
+{
+  "name": "International Conference on Mathematics and Its Applications (ICMA 2024)",
+  "summary": "Presented research on wave propagation in smart composite structures, focusing on piezoelectric fiber-reinforced composites and interfacial imperfections. Discussed exact dispersion relations, phase velocity variations, and damping effects in layered systems.",
+  "highlights": [
+    "Delivered oral presentation",
+    "Showcased theoretical modeling and computational analysis",
+    "Interacted with international research community"
+  ],
+  "startDate": "",
+  "endDate": "",
+  "url": ""
+},
+{
+  "name": "National Seminar on Advances in Mathematics and Its Applications",
+  "summary": "Presented work on mathematical modeling of SH-wave propagation in layered composite structures. Discussed implications for earthquake engineering and smart material design.",
+  "highlights": [
+    "Presented poster and participated in Q&A session",
+    "Engaged with experts in solid mechanics and applied mathematics"
+  ],
+  "startDate": "",
+  "endDate": "",
+  "url": ""
+}
+
+  ],
+  
+"education": [
+  {
+    "institution": "Jadavpur University",
+    "location": "West Bengal, India",
+    "url": "http://www.jaduniv.edu.in/",
+    "area": "Applied Mathematics",
+    "studyType": "Ph.D.",
+    "startDate": "2025",
+    "endDate": "",
+    "score": "",
+    "courses": ""
+  },
+  {
+    "institution": "Bhaktabala B.Ed. College",
+    "location": "West Bengal, India",
+    "url": "https://bhaktabalacollege.org/",
+    "area": "Mathematics Education",
+    "studyType": "B.Ed.",
+    "startDate": "2022",
+    "endDate": "2024",
+    "score": "8.35/10",
+    "courses": ""
+  },
+  {
+    "institution": "Ramakrishna Mission Vivekananda Centenary College",
+    "location": "West Bengal, India",
+    "url": "https://www.rkmvccrahara.org/",
+    "area": "Mathematics",
+    "studyType": "M.Sc.",
+    "startDate": "2020",
+    "endDate": "2022",
+    "score": "9.57/10",
+    "courses": ""
+  },
+  {
+    "institution": "Acharya Jagadish Chandra Bose College",
+    "location": "West Bengal, India",
+    "url": "https://www.ajcbosecollege.org/",
+    "area": "Mathematics",
+    "studyType": "B.Sc. (Hons.)",
+    "startDate": "2017",
+    "endDate": "2020",
+    "score": "74%",
+    "courses": ""
+  }
+  ],
+
+  "certificates": [
+    {
+    "name": "Introduction to Abstract and Linear Algebra | FDP",
+    "date": "",
+    "issuer": "NPTEL",
+    "url": "",
+    "icon": "fa-solid fa-square-root-variable"
+  },
+  {
+    "name": "TEW in Analysis and Topology 2023 | FDP",
+    "date": "",
+    "issuer": "ATM School",
+    "url": "",
+    "icon": "fa-solid fa-infinity"
+  },
+  {
+    "name": "Recent Trends in Biomathematics & Dynamical Systems | FDP",
+    "date": "",
+    "issuer": "Mahadevananda Mahavidyalaya",
+    "url": "",
+    "icon": "fa-solid fa-dna"
+  },
+  {
+    "name": "Python 3.4.3 | Training",
+    "date": "",
+    "issuer": "IIT Bombay",
+    "url": "",
+    "icon": "fa-solid fa-code"
+  },
+  {
+    "name": "LaTeX | Training",
+    "date": "",
+    "issuer": "IIT Bombay",
+    "url": "",
+    "icon": "fa-solid fa-file-code"
+  },
+  {
+    "name": "Number Theory & its Application | FDP",
+    "date": "",
+    "issuer": "Gates Institute of Technology",
+    "url": "",
+    "icon": "fa-solid fa-calculator"
+  },
+  {
+    "name": "Metric Spaces",
+    "date": "2021-03-01",
+    "issuer": "Krishna Chandra College",
+    "url": "",
+    "icon": "fa-solid fa-chalkboard-teacher"
+  },
+  {
+    "name": "A National Webinar on Epidemiology and Mathematics",
+    "date": "2021-07-01",
+    "issuer": "Rahara Ramakrishna Mission Vivekananda Centenary College",
+    "url": "",
+    "icon": "fa-solid fa-virus"
+  },
+    {
+    "name": "Metric Spaces",
+    "date": "2021-03-01",
+    "issuer": "Krishna Chandra College",
+    "url": "",
+    "icon": "fa-solid fa-chalkboard-teacher"
+  },
+  {
+    "name": "A National Webinar on Epidemiology and Mathematics",
+    "date": "2021-07-01",
+    "issuer": "Rahara Ramakrishna Mission Vivekananda Centenary College",
+    "url": "",
+    "icon": "fa-solid fa-virus"
+  },
+  {
+    "name": "Dynamical Systems in Cosmological Studies",
+    "date": "2021-03-01",
+    "issuer": "Krishna Chandra College",
+    "url": "",
+    "icon": "fa-solid fa-globe"
+  },
+  {
+    "name": "Electronic Waste: Problem, Management & Policies in India",
+    "date": "2020-08-01",
+    "issuer": "Acharya Jagadish Chandra Bose College",
+    "url": "",
+    "icon": "fa-solid fa-recycle"
+  },
+  {
+    "name": "Fighting COVID-19 through Mathematical Way",
+    "date": "2020-08-01",
+    "issuer": "Acharya Jagadish Chandra Bose College",
+    "url": "",
+    "icon": "fa-solid fa-virus-covid"
+  }
+  ],
+
+
+  "publications": [
+{
+  "name": "The Influence of SH-wave Propagation in a Tri-layered Composite Structure with Interfacial Imperfections",
+  "publisher": "Journal of Vibration Engineering & Technologies",
+  "releaseDate": "2025-01-01",
+  "url": "https://doi.org/10.1007/s42417-025-01776-y",
+  "summary": "This research investigates the effects of interfacial imperfections on shear-horizontal (SH) wave propagation in a tri-layered composite structure. By deriving exact dispersion relations and analyzing wave behavior, the study reveals how material properties, interface conditions, and geometric parameters influence phase velocity and damping characteristics, offering insights for applications in material engineering and wave-based sensing."
+}
+
+  ],
+  "skills": [
+{
+  "name": "Technical Skills",
+  "level": "Advanced",
+  "icon": "fa-solid fa-laptop-code",
+  "keywords": [
+    "Python",
+    "C",
+    "Mathematica",
+    "MATLAB",
+    "Matplotlib",
+    "LaTeX"
+  ]
+}
+
+  ],
+  "languages": [
+    {
+      "language": "Bengali",
+      "fluency": "Fluent",
+      "icon": ""
+    },
+        {
+      "language": "Hindi",
+      "fluency": "Fluent",
+      "icon": ""
+    },
+    {
+      "language": "English",
+      "fluency": "Fluent",
+      "icon": ""
+    }
+  ],
+  "interests": [
+{
+  "name": "Research Interests",
+  "icon": "fa-solid fa-flask",
+  "keywords": [
+    "Solid Mechanics",
+    "Wave Propagation",
+    "Piezoelectricity",
+    "Elastodynamics",
+    "Vibrations",
+    "Smart Materials"
+  ]
+},
+{
+  "name": "Subject Interests",
+  "icon": "fa-solid fa-lightbulb",
+  "keywords": [
+    "Differential Equations",
+    "Wave Propagation",
+    "Graph Theory",
+    "Complex Analysis",
+    "Manifold Theory"
+  ]
+}
+
+  ],
+  "references": [
+{
+  "name": "Prof. Gopal Ch. Shit",
+  "icon": "fa-solid fa-laptop",
+  "reference": "Professor, Jadavpur University. Email: gcshit@jadavpuruniversity.in"
+},
+{
+  "name": "Dr. Kshitish Ch. Mistri",
+  "icon": "fa-solid fa-thumbtack",
+  "reference": "Assistant Professor, Ramakrishna Mission Vivekananda Centenary College. Email: kchmistri@gmail.com"
+},
+{
+  "name": "Dr. Amrita Das",
+  "icon": "fa-solid fa-user-graduate",
+  "reference": "Assistant Professor, Polba Mahavidyalaya, University of Burdwan. Email: amritadas.ism@gmail.com"
+},
+{
+  "name": "Dr. Satyabrota Kundu",
+  "icon": "fa-solid fa-chalkboard-teacher",
+  "reference": "Assistant Professor, Loreto College, University of Calcutta. Email: satyacaluniv@gmail.com"
+}
+
+  ],
+  "projects": [
+{
+  "name": "Morse Theory-A tool to study topological structure of smooth manifold.  ",
+  "summary": "Morse Theory is a mathematical tool used to study the topological structure of smooth manifolds. This project explored the critical points of smooth functions on manifolds and their relationship to topology, providing insights into manifold theory and its applications in geometry and mathematical physics. Supervised by Satyabrota Kundu.",
+  "highlights": [
+    "Studied topological structures of smooth manifolds",
+    "Applied Morse Theory to analyze critical points and topology"
+  ],
+  "startDate": "2020-01-01",
+  "endDate": "2020-12-31",
+  "url": ""
+},
+{
+  "name": "Morse Theory",
+  "summary": "Guided MSc student Marjita Goswami at Brainware University through all stages of her project on Morse Theory, from problem formulation to theoretical development and final presentation.",
+  "highlights": [
+    "Provided academic and research guidance",
+    "Oversaw project execution and theoretical analysis"
+  ],
+  "startDate": "",
+  "endDate": "",
+  "url": ""
+}
+
+  ]
+}
