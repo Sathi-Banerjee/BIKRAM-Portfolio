@@ -1,34 +1,12 @@
-# Jekyll build output
 _site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata/
-
-# Bundler dependencies
-.bundle/
-vendor/
-
-# Node dependencies
-node_modules/
+.bundle
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+.DS_store
+.ruby-version
+.tweet-cache
 assets/libs/
-
-# OS and IDE files
-.DS_Store
+node_modules/
+vendor
 .idea/
-*.swp
-*.swo
-
-# Git files
-.git/
-.gitignore
-
-# Logs and temporary files
-*.log
-tmp/
-.cache/
-*.bak
-*.tmp
-
-# Local configuration
-.Dockerfile
-bin/entry_point.sh
