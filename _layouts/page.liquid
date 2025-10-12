@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 {% if page._styles %}
   <!-- Page/Post style -->
   <style type="text/css">
@@ -18,11 +19,13 @@ layout: default
     {{ content }}
   </article>
 
-  {% if page.related_publications %}
+  {% if page.references %}
     <h2>References</h2>
-    <div class="publications">
-      {# {% bibliography --cited_in_order %} #} <!-- Commented out for GitHub Pages -->
-    </div>
+    <ul class="publications">
+      {% for ref in page.references %}
+        <li>{{ ref }}</li>
+      {% endfor %}
+    </ul>
   {% endif %}
 
   {% if site.giscus and page.giscus_comments %}
