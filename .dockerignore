@@ -1,3 +1,10 @@
-_site/
-.git/
-assets/
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+**/vendor/bundle
+**/tmp
+**/log
+*.gem
+*.lock
+.DS_Store

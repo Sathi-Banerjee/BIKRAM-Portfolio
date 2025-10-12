@@ -1,12 +1,7 @@
-# Use slim Ruby image
-FROM ruby:slim
+# Base image
+FROM ruby:3.2-slim
 
-ENV DEBIAN_FRONTEND=noninteractive \
-    LANG=en_US.UTF-8 \
-    LANGUAGE=en_US:en \
-    LC_ALL=en_US.UTF-8 \
-    JEKYLL_ENV=production \
-    EXECJS_RUNTIME=Node
+ENV DEBIAN_FRONTEND=noninteractive
 
 LABEL authors="Amir Pourmand, George Araújo" \
       description="Docker image for al-folio academic template" \
@@ -20,42 +15,50 @@ RUN apt-get update -y && \
         git \
         imagemagick \
         python3-pip \
-        python3-venv \
         zlib1g-dev \
         locales \
         gnupg \
         ca-certificates \
         apt-transport-https \
         lsb-release && \
-    # Set locale
-    sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
-    locale-gen en_US.UTF-8 && \
-    # Install Node.js LTS
+    # Install Node.js LTS (20.x)
     curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
     apt-get install -y nodejs && \
-    # Upgrade nbconvert with break-system-packages to bypass PEP 668
-    pip install --no-cache-dir --upgrade --break-system-packages nbconvert && \
-    # Clean up to reduce image size
+    # Upgrade nbconvert for Jupyter support (allow system package override)
+    pip install --no-cache-dir --break-system-packages --upgrade nbconvert && \
+    # Set locale
+    locale-gen en_US.UTF-8 && \
+    # Cleanup
     apt-get clean && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/cache/apt/*
 
-# Create working directory
+# Set environment variables
+ENV EXECJS_RUNTIME=Node \
+    JEKYLL_ENV=production \
+    LANG=en_US.UTF-8 \
+    LANGUAGE=en_US:en \
+    LC_ALL=en_US.UTF-8
+
+# Create Jekyll site directory
 RUN mkdir /srv/jekyll
+
+# Copy Gemfile for dependencies
+ADD Gemfile /srv/jekyll/
+ADD Gemfile.lock /srv/jekyll/
+
 WORKDIR /srv/jekyll
 
-# Copy Gemfile and Gemfile.lock
-COPY Gemfile* /srv/jekyll/
-
-# Install Jekyll and dependencies
+# Install Jekyll and bundle dependencies
 RUN gem install --no-document jekyll bundler && \
     bundle install --no-cache
 
-# Copy entrypoint script
-COPY bin/entry_point.sh /tmp/entry_point.sh
-
-# Expose default Render port
+# Expose the default port
 EXPOSE 10000
 
-# Run Jekyll serve
-CMD ["bundle", "exec", "jekyll", "serve", "--host", "0.0.0.0", "--port", "${PORT:-10000}"]
+# Copy entrypoint script
+COPY bin/entry_point.sh /tmp/entry_point.sh
+RUN chmod +x /tmp/entry_point.sh
+
+# Start the Jekyll server
+CMD /tmp/entry_point.sh
