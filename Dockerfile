@@ -1,4 +1,4 @@
-# Use a lightweight Ruby image
+# Use official Ruby slim image
 FROM ruby:3.2-slim
 
 ENV DEBIAN_FRONTEND=noninteractive \
@@ -8,9 +8,6 @@ ENV DEBIAN_FRONTEND=noninteractive \
     JEKYLL_ENV=production \
     EXECJS_RUNTIME=Node
 
-LABEL maintainer="Sathi Banerjee" \
-      description="Docker image for al-folio Jekyll portfolio site"
-
 # Install system dependencies
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
@@ -19,42 +16,40 @@ RUN apt-get update -y && \
         git \
         imagemagick \
         python3-pip \
-        python3-venv \
         zlib1g-dev \
         locales \
         gnupg \
         ca-certificates \
         apt-transport-https \
-        lsb-release && \
+        lsb-release \
+        nodejs \
+        npm && \
+    pip3 install --no-cache-dir nbconvert --break-system-packages && \
     locale-gen en_US.UTF-8 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/cache/apt/*
 
-# Install Node.js LTS
-RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
-    apt-get install -y nodejs
-
-# Upgrade nbconvert safely in a virtual environment
-RUN python3 -m venv /opt/venv && \
-    /opt/venv/bin/pip install --no-cache-dir --upgrade pip nbconvert
-
-# Create a directory for the Jekyll site
-RUN mkdir /srv/jekyll
+# Set work directory
 WORKDIR /srv/jekyll
 
-# Copy Gemfile and lock
-COPY Gemfile Gemfile.lock /srv/jekyll/
+# Copy Gemfile first to leverage Docker cache
+COPY Gemfile Gemfile.lock ./
 
-# Install Jekyll and Bundler
-RUN gem install --no-document bundler jekyll && \
+# Install Ruby dependencies
+RUN gem install --no-document jekyll bundler && \
     bundle install --no-cache
 
-# Copy entry point and make it executable
+# Copy entry point script
 COPY bin/entry_point.sh /tmp/entry_point.sh
 RUN chmod +x /tmp/entry_point.sh
 
-# Expose the Jekyll port
+# Copy the site content
+COPY . .
+
+# Remove .git to prevent Render exit 128
+RUN rm -rf .git
+
 EXPOSE 10000
 
-# Set entry point
+# Start Jekyll
 CMD ["/tmp/entry_point.sh"]
