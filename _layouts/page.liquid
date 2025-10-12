@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-
 {% if page._styles %}
   <!-- Page/Post style -->
   <style type="text/css">
@@ -10,35 +9,23 @@ layout: default
 {% endif %}
 
 <div class="post">
-
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
-    {% if page.description %}
-      <p class="post-description">{{ page.description }}</p>
-    {% endif %}
+    <p class="post-description">{{ page.description }}</p>
   </header>
-
-  {% if page.img %}
-    <div style="text-align:center; margin-bottom: 1.5rem;">
-      <img src="{{ page.img | relative_url }}" alt="{{ page.title }}" style="border-radius:8px; max-width:100%;">
-    </div>
-  {% endif %}
 
   <article>
     {{ content }}
   </article>
 
   {% if page.related_publications %}
-    <h2 class="section-title">References</h2>
+    <h2>References</h2>
     <div class="publications">
-      {% for pub in page.related_publications %}
-        <p>{{ pub }}</p>
-      {% endfor %}
+      {# {% bibliography --cited_in_order %} #} <!-- Commented out for GitHub Pages -->
     </div>
   {% endif %}
 
   {% if site.giscus and page.giscus_comments %}
     {% include giscus.liquid %}
   {% endif %}
-
 </div>
