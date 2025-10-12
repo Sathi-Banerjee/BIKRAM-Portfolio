@@ -1,13 +1,14 @@
+# Use slim Ruby image
 FROM ruby:slim
 
 ENV DEBIAN_FRONTEND=noninteractive \
     LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
     LC_ALL=en_US.UTF-8 \
-    EXECJS_RUNTIME=Node \
-    JEKYLL_ENV=production
+    JEKYLL_ENV=production \
+    EXECJS_RUNTIME=Node
 
-LABEL authors="Amir Pourmand,George Araújo" \
+LABEL authors="Amir Pourmand, George Araújo" \
       description="Docker image for al-folio academic template" \
       maintainer="Amir Pourmand"
 
@@ -19,44 +20,42 @@ RUN apt-get update -y && \
         git \
         imagemagick \
         python3-pip \
+        python3-venv \
         zlib1g-dev \
         locales \
         gnupg \
         ca-certificates \
         apt-transport-https \
         lsb-release && \
-    # Install Node.js (long-term support)
+    # Set locale
+    sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
+    locale-gen en_US.UTF-8 && \
+    # Install Node.js LTS
     curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
     apt-get install -y nodejs && \
-    # Upgrade nbconvert for Jupyter support
-    pip install --no-cache-dir --upgrade nbconvert && \
-    # Set locale
-    locale-gen en_US.UTF-8 && \
-    # Cleanup to reduce image size
+    # Upgrade nbconvert with break-system-packages to bypass PEP 668
+    pip install --no-cache-dir --upgrade --break-system-packages nbconvert && \
+    # Clean up to reduce image size
     apt-get clean && \
     apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/cache/apt/*
 
-# Create Jekyll site directory
+# Create working directory
 RUN mkdir /srv/jekyll
-
 WORKDIR /srv/jekyll
 
-# Copy only Gemfile first to leverage Docker cache for gems
-COPY Gemfile Gemfile.lock /srv/jekyll/
+# Copy Gemfile and Gemfile.lock
+COPY Gemfile* /srv/jekyll/
 
-# Install Jekyll and bundle gems (cached if Gemfile doesn't change)
+# Install Jekyll and dependencies
 RUN gem install --no-document jekyll bundler && \
     bundle install --no-cache
 
-# Copy the rest of the site (content changes won't reinstall gems)
-COPY . /srv/jekyll
-
-# Expose Jekyll port
-EXPOSE 10000
-
-# Copy entry point script
+# Copy entrypoint script
 COPY bin/entry_point.sh /tmp/entry_point.sh
 
-# Default command to serve Jekyll
+# Expose default Render port
+EXPOSE 10000
+
+# Run Jekyll serve
 CMD ["bundle", "exec", "jekyll", "serve", "--host", "0.0.0.0", "--port", "${PORT:-10000}"]
