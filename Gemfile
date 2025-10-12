@@ -27,8 +27,8 @@ group :jekyll_plugins do
   gem "jekyll-include-cache"
 end
 
-# ⚠️ Temporarily comment out assets if not used — this gem often causes build failures on Vercel
-gem "jekyll-assets", "~> 1.0"
+# Optional — ⚠️ Comment out or remove if not using asset pipeline
+# gem "jekyll-assets", "~> 1.0"
 
 # Other plugins and dependencies
 group :other_plugins do
@@ -41,4 +41,3 @@ end
 
 # Windows only
 gem "wdm", ">= 0.1.0" if Gem.win_platform?
-gem "jekyll-toc"

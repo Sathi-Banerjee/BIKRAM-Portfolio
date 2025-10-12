@@ -21,17 +21,23 @@ layout: default
       {% if page.last_updated %}, last updated on {{ page.last_updated | date: '%B %d, %Y' }}{% endif %}
       {% if page.meta %}• {{ page.meta }}{% endif %}
     </p>
+
     <p class="post-tags">
       {% if url_beginning == '/blog/' %}
-        <a href="{{ year | prepend: '/blog/' | relative_url }}"> <i class="fa-solid fa-calendar fa-sm"></i> {{ year }} </a>
+        <a href="{{ year | prepend: '/blog/' | relative_url }}">
+          <i class="fa-solid fa-calendar fa-sm"></i> {{ year }}
+        </a>
       {% else %}
         <i class="fa-solid fa-calendar fa-sm"></i> {{ year }}
       {% endif %}
+
       {% if tags != '' %}
         &nbsp; &middot; &nbsp;
         {% for tag in page.tags %}
           {% if url_beginning == '/blog/' %}
-            <a href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}"> <i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}</a>
+            <a href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}">
+              <i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}
+            </a>
           {% else %}
             <i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}
           {% endif %}
@@ -43,7 +49,9 @@ layout: default
         &nbsp; &middot; &nbsp;
         {% for category in page.categories %}
           {% if url_beginning == '/blog/' %}
-            <a href="{{ category | slugify | prepend: '/blog/category/' | relative_url }}"> <i class="fa-solid fa-tag fa-sm"></i> {{ category }}</a>
+            <a href="{{ category | slugify | prepend: '/blog/category/' | relative_url }}">
+              <i class="fa-solid fa-tag fa-sm"></i> {{ category }}
+            </a>
           {% else %}
             <i class="fa-solid fa-tag fa-sm"></i> {{ category }}
           {% endif %}
@@ -58,7 +66,8 @@ layout: default
       <div id="table-of-contents">
         <h2>Table of Contents</h2>
         <ul>
-          {% for heading in content | split:'\n' %}
+          {% assign headings_array = content | split: '\n' %}
+          {% for heading in headings_array %}
             {% if heading contains '## ' %}
               {% assign title = heading | replace: '## ', '' %}
               <li><a href="#{{ title | slugify }}">{{ title }}</a></li>
@@ -94,6 +103,7 @@ layout: default
   {% if site.disqus_shortname and page.disqus_comments %}
     {% include disqus.liquid %}
   {% endif %}
+
   {% if site.giscus and page.giscus_comments %}
     {% include giscus.liquid %}
   {% endif %}

@@ -184,7 +184,7 @@ plugins:
   - jekyll-toc
   - jekyll-twitter-plugin
   - jemoji
-  - jekyll-assets
+  #- jekyll-assets
   - jekyll-toc
 
 sass:
