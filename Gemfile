@@ -1,8 +1,10 @@
 source "https://rubygems.org"
 
+# Jekyll core
 gem "jekyll", "~> 4.4"
 gem "minima", "~> 2.5"
 
+# Plugins (Jekyll group)
 group :jekyll_plugins do
   gem "jekyll-archives-v2"
   gem "jekyll-email-protect"
@@ -25,9 +27,10 @@ group :jekyll_plugins do
   gem "jekyll-include-cache"
 end
 
-# Remove jekyll-assets for now
- gem "jekyll-assets", "~> 1.0"
+# ⚠️ Temporarily comment out assets if not used — this gem often causes build failures on Vercel
+gem "jekyll-assets", "~> 1.0"
 
+# Other plugins and dependencies
 group :other_plugins do
   gem "css_parser"
   gem "feedjira"
@@ -36,4 +39,6 @@ group :other_plugins do
   gem "ostruct"
 end
 
+# Windows only
 gem "wdm", ">= 0.1.0" if Gem.win_platform?
+gem "jekyll-toc"

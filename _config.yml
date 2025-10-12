@@ -185,6 +185,7 @@ plugins:
   - jekyll-twitter-plugin
   - jemoji
   - jekyll-assets
+  - jekyll-toc
 
 sass:
   style: compressed

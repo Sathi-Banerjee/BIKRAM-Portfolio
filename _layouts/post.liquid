@@ -7,7 +7,6 @@ layout: default
 {% assign url_beginning = page.url | slice: 0, 6 %}
 
 {% if page._styles %}
-  <!-- Page/Post style -->
   <style type="text/css">
     {{ page._styles }}
   </style>
@@ -36,9 +35,7 @@ layout: default
           {% else %}
             <i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}
           {% endif %}
-          {% unless forloop.last %}
-            &nbsp;
-          {% endunless %}
+          {% unless forloop.last %}&nbsp;{% endunless %}
         {% endfor %}
       {% endif %}
 
@@ -46,25 +43,32 @@ layout: default
         &nbsp; &middot; &nbsp;
         {% for category in page.categories %}
           {% if url_beginning == '/blog/' %}
-            <a href="{{ category | slugify | prepend: '/blog/category/' | relative_url }}"> <i class="fa-solid fa-tag fa-sm"></i> {{ category -}}</a>
+            <a href="{{ category | slugify | prepend: '/blog/category/' | relative_url }}"> <i class="fa-solid fa-tag fa-sm"></i> {{ category }}</a>
           {% else %}
             <i class="fa-solid fa-tag fa-sm"></i> {{ category }}
           {% endif %}
-          {% unless forloop.last %}
-            &nbsp;
-          {% endunless %}
+          {% unless forloop.last %}&nbsp;{% endunless %}
         {% endfor %}
       {% endif %}
     </p>
   </header>
 
   <article class="post-content">
-    {% if page.toc and page.toc.beginning %}
+    {% if page.toc %}
       <div id="table-of-contents">
-        {% toc %}
+        <h2>Table of Contents</h2>
+        <ul>
+          {% for heading in content | split:'\n' %}
+            {% if heading contains '## ' %}
+              {% assign title = heading | replace: '## ', '' %}
+              <li><a href="#{{ title | slugify }}">{{ title }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
       </div>
       <hr>
     {% endif %}
+
     <div id="markdown-content">
       {{ content }}
     </div>
