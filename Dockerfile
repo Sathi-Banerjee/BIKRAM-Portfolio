@@ -1,11 +1,15 @@
-# Base image
+# Use a lightweight Ruby image
 FROM ruby:3.2-slim
 
-ENV DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND=noninteractive \
+    LANG=en_US.UTF-8 \
+    LANGUAGE=en_US:en \
+    LC_ALL=en_US.UTF-8 \
+    JEKYLL_ENV=production \
+    EXECJS_RUNTIME=Node
 
-LABEL authors="Amir Pourmand, George Araújo" \
-      description="Docker image for al-folio academic template" \
-      maintainer="Amir Pourmand"
+LABEL maintainer="Sathi Banerjee" \
+      description="Docker image for al-folio Jekyll portfolio site"
 
 # Install system dependencies
 RUN apt-get update -y && \
@@ -15,50 +19,42 @@ RUN apt-get update -y && \
         git \
         imagemagick \
         python3-pip \
+        python3-venv \
         zlib1g-dev \
         locales \
         gnupg \
         ca-certificates \
         apt-transport-https \
         lsb-release && \
-    # Install Node.js LTS (20.x)
-    curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
-    apt-get install -y nodejs && \
-    # Upgrade nbconvert for Jupyter support (allow system package override)
-    pip install --no-cache-dir --break-system-packages --upgrade nbconvert && \
-    # Set locale
     locale-gen en_US.UTF-8 && \
-    # Cleanup
     apt-get clean && \
-    apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/cache/apt/*
 
-# Set environment variables
-ENV EXECJS_RUNTIME=Node \
-    JEKYLL_ENV=production \
-    LANG=en_US.UTF-8 \
-    LANGUAGE=en_US:en \
-    LC_ALL=en_US.UTF-8
+# Install Node.js LTS
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs
 
-# Create Jekyll site directory
+# Upgrade nbconvert safely in a virtual environment
+RUN python3 -m venv /opt/venv && \
+    /opt/venv/bin/pip install --no-cache-dir --upgrade pip nbconvert
+
+# Create a directory for the Jekyll site
 RUN mkdir /srv/jekyll
-
-# Copy Gemfile for dependencies
-ADD Gemfile /srv/jekyll/
-ADD Gemfile.lock /srv/jekyll/
-
 WORKDIR /srv/jekyll
 
-# Install Jekyll and bundle dependencies
-RUN gem install --no-document jekyll bundler && \
+# Copy Gemfile and lock
+COPY Gemfile Gemfile.lock /srv/jekyll/
+
+# Install Jekyll and Bundler
+RUN gem install --no-document bundler jekyll && \
     bundle install --no-cache
 
-# Expose the default port
-EXPOSE 10000
-
-# Copy entrypoint script
+# Copy entry point and make it executable
 COPY bin/entry_point.sh /tmp/entry_point.sh
 RUN chmod +x /tmp/entry_point.sh
 
-# Start the Jekyll server
-CMD /tmp/entry_point.sh
+# Expose the Jekyll port
+EXPOSE 10000
+
+# Set entry point
+CMD ["/tmp/entry_point.sh"]
