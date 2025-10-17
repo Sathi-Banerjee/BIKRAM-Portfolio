@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     JEKYLL_ENV=production \
     EXECJS_RUNTIME=Node
 
-# Install system dependencies
+# Install system dependencies + Node.js from NodeSource
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
         build-essential \
@@ -19,9 +19,10 @@ RUN apt-get update -y && \
         python3-pip \
         zlib1g-dev \
         locales \
-        ca-certificates \
-        nodejs \
-        npm && \
+        ca-certificates && \
+    # Install Node.js 20.x from NodeSource
+    curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs && \
     pip3 install --no-cache-dir --break-system-packages nbconvert && \
     locale-gen en_US.UTF-8 && \
     apt-get clean && \
