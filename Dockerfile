@@ -22,7 +22,7 @@ RUN apt-get update -y && \
         ca-certificates \
         nodejs \
         npm && \
-    pip3 install --no-cache-dir nbconvert && \
+    pip3 install --no-cache-dir --break-system-packages nbconvert && \
     locale-gen en_US.UTF-8 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/cache/apt/*
