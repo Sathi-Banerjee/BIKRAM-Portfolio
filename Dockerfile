@@ -9,8 +9,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
     JEKYLL_ENV=production \
     EXECJS_RUNTIME=Node
 
-# Install system dependencies + Node.js from NodeSource
-RUN apt-get update -y && \
+# Install system dependencies + Node.js 20.x
+RUN apt-get update -qq && \
     apt-get install -y --no-install-recommends \
         build-essential \
         curl \
@@ -20,32 +20,35 @@ RUN apt-get update -y && \
         zlib1g-dev \
         locales \
         ca-certificates && \
-    # Install Node.js 20.x from NodeSource
-    curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
-    apt-get install -y nodejs && \
-    pip3 install --no-cache-dir --break-system-packages nbconvert && \
-    locale-gen en_US.UTF-8 && \
+    # Install Node.js from NodeSource quietly
+    curl -fsSL https://deb.nodesource.com/setup_20.x | bash - > /dev/null && \
+    apt-get install -y nodejs > /dev/null && \
+    # Install Python nbconvert quietly
+    pip3 install --no-cache-dir --break-system-packages nbconvert > /dev/null && \
+    # Generate locale
+    locale-gen en_US.UTF-8 > /dev/null && \
+    # Clean up apt cache
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/cache/apt/*
 
 # Set working directory
 WORKDIR /srv/jekyll
 
-# Copy Gemfile first (improves build cache)
+# Copy Gemfile first to leverage Docker cache
 COPY Gemfile Gemfile.lock ./
 
-# Install Ruby dependencies (Jekyll + Bundler)
-RUN gem install --no-document jekyll bundler && \
-    bundle install --no-cache
+# Install Ruby dependencies quietly
+RUN gem install --no-document jekyll bundler > /dev/null && \
+    bundle install --no-cache > /dev/null
 
-# Copy the site content
+# Copy site content
 COPY . .
 
-# Copy and set entry point script permissions
+# Copy entry point and make it executable
 COPY bin/entry_point.sh /tmp/entry_point.sh
 RUN chmod +x /tmp/entry_point.sh
 
-# Ensure no leftover Git metadata
+# Remove leftover Git metadata if any
 RUN rm -rf .git
 
 # Expose Jekyll default port
