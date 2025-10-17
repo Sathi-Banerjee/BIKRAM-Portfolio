@@ -1,6 +1,7 @@
 # Use official Ruby slim image
 FROM ruby:3.2-slim
 
+# Set environment variables
 ENV DEBIAN_FRONTEND=noninteractive \
     LANG=en_US.UTF-8 \
     LANGUAGE=en_US:en \
@@ -25,7 +26,7 @@ RUN apt-get update -y && \
         nodejs \
         npm \
         inotify-tools && \
-    pip3 install --no-cache-dir nbconvert --break-system-packages && \
+    pip3 install --no-cache-dir nbconvert && \
     locale-gen en_US.UTF-8 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/cache/apt/*
@@ -33,25 +34,25 @@ RUN apt-get update -y && \
 # Set working directory
 WORKDIR /srv/jekyll
 
-# Copy Gemfile first to leverage Docker cache
+# Copy Gemfile first (improves build cache)
 COPY Gemfile Gemfile.lock ./
 
-# Install Ruby dependencies
+# Install Ruby dependencies (Jekyll + Bundler)
 RUN gem install --no-document jekyll bundler && \
     bundle install --no-cache
 
-# Copy the site content
+# Copy the site content (after dependencies)
 COPY . .
 
-# Copy the entry point script and make it executable
+# Copy and set entry point script permissions
 COPY bin/entry_point.sh /tmp/entry_point.sh
 RUN chmod +x /tmp/entry_point.sh
 
-# Remove .git to prevent Render exit 128
+# Ensure no leftover Git metadata (prevents Render status 128)
 RUN rm -rf .git
 
-# Expose port (Jekyll default is 4000)
+# Expose Jekyll default port
 EXPOSE 4000
 
-# Start Jekyll using your entry point
+# Start Jekyll
 CMD ["/tmp/entry_point.sh"]
