@@ -1,12 +1,3 @@
 _site/
-.bundle
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-.DS_store
-.ruby-version
-.tweet-cache
-assets/libs/
-node_modules/
-vendor
-.idea/
+.git/
+assets/

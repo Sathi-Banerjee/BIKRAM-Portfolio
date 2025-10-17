@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     JEKYLL_ENV=production \
     EXECJS_RUNTIME=Node
 
-# Install system dependencies including inotify-tools
+# Install system dependencies
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
         build-essential \
@@ -30,7 +30,7 @@ RUN apt-get update -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/cache/apt/*
 
-# Set work directory
+# Set working directory
 WORKDIR /srv/jekyll
 
 # Copy Gemfile first to leverage Docker cache
@@ -40,18 +40,18 @@ COPY Gemfile Gemfile.lock ./
 RUN gem install --no-document jekyll bundler && \
     bundle install --no-cache
 
-# Copy entry point script
-COPY bin/entry_point.sh /tmp/entry_point.sh
-RUN chmod +x /tmp/entry_point.sh
-
 # Copy the site content
 COPY . .
+
+# Copy the entry point script and make it executable
+COPY bin/entry_point.sh /tmp/entry_point.sh
+RUN chmod +x /tmp/entry_point.sh
 
 # Remove .git to prevent Render exit 128
 RUN rm -rf .git
 
-# Expose port 4000 (for Jekyll) or 10000 if you prefer
+# Expose port (Jekyll default is 4000)
 EXPOSE 4000
 
-# Start Jekyll
+# Start Jekyll using your entry point
 CMD ["/tmp/entry_point.sh"]
