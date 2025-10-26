@@ -1,14 +1,19 @@
+# Jekyll build artifacts
 _site/
-.bundle
-.sass-cache
-.jekyll-cache
+.jjekyll-cache
 .jekyll-metadata
+.sass-cache
+.bundle
+
+# System files
 .DS_Store
 .ruby-version
 .tweet-cache
-assets/libs/
+
+# IDE / project config
+.idea/
 node_modules/
 vendor/
-.idea/
-.git/
-assets/
+
+# Only ignore unnecessary parts of assets, keep CSS, JS, images
+assets/libs/

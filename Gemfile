@@ -27,7 +27,7 @@ group :jekyll_plugins do
   gem "jekyll-include-cache"
 end
 
-# ⚠️ Temporarily comment out assets if not used — this gem often causes build failures on Vercel
+# ⚠️ Optional: comment out if you don’t use SCSS/JS assets bundling
 gem "jekyll-assets", "~> 1.0"
 
 # Other plugins and dependencies
@@ -39,6 +39,9 @@ group :other_plugins do
   gem "ostruct"
 end
 
-# Windows only
+# Windows compatibility
 gem "wdm", ">= 0.1.0" if Gem.win_platform?
-gem "jekyll-toc"
+
+# Compatibility fixes
+gem "public_suffix", ">= 6.0"
+gem "google-protobuf", ">= 4.33.0"
